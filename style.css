@@ -1,0 +1,69 @@
+
+body {
+    background-color: #f8c0c0; /* Color de fondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.heart-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heart {
+    width: 120px;
+    height: 120px;
+    background-color: #ff69b4; /* Color del corazón */
+    position: relative;
+    transform: rotate(-45deg);
+    animation: pulse 1.5s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    width: 120px;
+    height: 120px;
+    background-color: #ff69b4;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -60px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 60px;
+}
+
+.name {
+    position: absolute;
+    color: white; /* Color del texto */
+    font-size: 2rem;
+    font-family: sans-serif;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1; /* Para que el texto esté encima del corazón */
+    transform: rotate(45deg); /* Gira el nombre para que quede recto */
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+    100% {
+        transform: scale(1) rotate(-45deg);
+    }
+}
